@@ -1,0 +1,26 @@
+{
+    "manifest_version": 3,
+    "name": "gcal-scheduler",
+    "description": "Parses highlighted event details and adds event to Google Calendar",
+    "version": "1.0.0",
+    "host_permissions": ["https://*.openai.com/"],
+    "permissions": [
+        "storage",
+        "tabs"
+    ],
+    "icons": {
+        "512": "assets/icons/google-calendar.png"
+    },
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": ["http://*/*", "https://*/*"],
+            "js": ["contentScript.js"]
+        }
+    ]
+}
